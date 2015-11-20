@@ -1,18 +1,19 @@
-package petstore.object;
+package petstore.dto;
 
 import java.util.List;
 
-import org.springframework.data.annotation.Id;
+import javax.validation.constraints.Min;
 
-public class Pet {
+public class PetDto {
 	
-	@Id
+	@Min(0)
 	private int id;
-	private Category category;
+	
+	private CategoryDto category;
 	private String name;
 	private List<String> photoUrls;
-	private List<Tag> tags;
-	private StatusEnum status;
+	private List<TagDto> tags;
+	private String status;
 
 	public int getId() {
 		return id;
@@ -20,10 +21,10 @@ public class Pet {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Category getCategory() {
+	public CategoryDto getCategory() {
 		return category;
 	}
-	public void setCategory(Category category) {
+	public void setCategory(CategoryDto category) {
 		this.category = category;
 	}
 	public String getName() {
@@ -38,16 +39,16 @@ public class Pet {
 	public void setPhotoUrls(List<String> photoUrls) {
 		this.photoUrls = photoUrls;
 	}
-	public List<Tag> getTags() {
+	public List<TagDto> getTags() {
 		return tags;
 	}
-	public void setTags(List<Tag> tags) {
+	public void setTags(List<TagDto> tags) {
 		this.tags = tags;
 	}
-	public StatusEnum getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(StatusEnum status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 }
