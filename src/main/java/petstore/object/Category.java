@@ -1,4 +1,4 @@
-package petstore.domain;
+package petstore.object;
 
 import org.springframework.data.annotation.Id;
 

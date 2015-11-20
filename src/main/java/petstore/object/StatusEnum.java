@@ -1,4 +1,4 @@
-package petstore.dto;
+package petstore.object;
 
 public enum StatusEnum {
 	AVAILABLE("AVAILABLE"),
