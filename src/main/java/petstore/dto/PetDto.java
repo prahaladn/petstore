@@ -2,13 +2,12 @@ package petstore.dto;
 
 import java.util.List;
 
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Digits;
 
 public class PetDto {
 	
-	@Min(0)
+	@Digits(fraction = 0, integer = 1000)
 	private int id;
-	
 	private CategoryDto category;
 	private String name;
 	private List<String> photoUrls;

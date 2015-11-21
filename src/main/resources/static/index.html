@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="petStoreApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Pet Store</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+<script	src="js/ui-bootstrap-tpls-0.9.0.min.js"></script>
+<script src="js/angular-route.js"></script>
+<script	src="js/angular-resource.js"></script>
+
+<script src="js/app.js"></script>
+</head>
+<body>
+	<header class="navbar navbar-static-top" id="top" role="banner">
+		<div class="container">
+			<header class="navbar navbar-default navbar-fixed-top">
+				<div class="navbar-inner">
+			        <div class="container">
+						<span class="navbar-brand">Pet Store Demo Application</span>
+			        </div>
+			    </div>
+			</header>
+		</div>
+	</header>
+	<div class="container">
+		<table style="width: 100%">
+			<tr>
+				<td style="width: 15%; vertical-align: top; padding-top: 10px">
+					<div class="list-group">
+						<a href="#/" class="list-group-item active">New Pet</a>
+						<a href="#/pets" class="list-group-item">All Pets</a> 
+						<a href="#/findpet" class="list-group-item">Find a Pet</a>
+					</div>
+				</td>
+				<td style="width: 85%; vertical-align: top;">
+					<div ng-view></div>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<div style="padding: 0px 0px 0px 30px">
+	<div class="page-header" style="margin: 0">
+		<h1>
+			<!-- Heading goes here -->
+			All Pets
+		</h1>
+	</div>
+	<div style="padding-top: 15px; padding-bottom: 30px">
+		<!-- Summary goes here -->
+	</div>
+	<div>
+		<div class="alert alert-info" role="alert">{{message}}</div>
+		<table style="width: 100%" class="table">
+			<tr>
+				<th>Pet Id</th>
+				<th>Pet Name</th>
+				<th>Category</th>
+				<th>Status</th>
+				<th/>
+			</tr>
+			<tr ng-repeat="pet in pets">
+				<td><a href="#/pet/{{pet.id}}">{{pet.id}}</a></td>
+				<td>{{pet.name}}</td>
+				<td>{{pet.category.name}}</td>
+				<td>{{pet.status}}</td>
+				<td><a href="#/delete/{{pet.id}}">Delete</a></td>
+			</tr>
+		</table>
+	</div>
+</div>

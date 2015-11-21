@@ -1,0 +1,99 @@
+<div style="padding: 0px 0px 0px 30px">
+	<div class="page-header" style="margin: 0">
+		<h2>
+			<!-- Heading goes here -->
+			New Pet
+		</h2>
+	</div>
+	
+	<div style="padding-bottom: 50px">
+		<div style="margin-top: 20px" class="alert alert-info" role="alert">{{message}}</div>
+		<table style="width: 100%">
+			<tr>
+				<td style="width: 45%; padding-left: 40px; vertical-align: top">
+					<div style="padding-bottom: 20px">
+						<h3>Add a New Pet</h3>
+					</div>
+					<form class="form-horizontal" role="form"
+						ng-submit="createNewPet()">
+						<div class="form-group">
+							<label class="col-md-4 control-label">Pet Name</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control" name="name"
+									ng-model="name" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Category</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control" name="categoryname"
+									ng-model="categoryname" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Status</label>
+							<div class="col-md-5">
+								<select class="form-control" name="status"
+									ng-model="status" ng-init="status='AVAILABLE'">
+									<option>AVAILABLE</option>
+									<option>PENDING</option>
+									<option>SOLD</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Photo Url 1</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control" name="photourl1"
+									ng-model="photourl1" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Photo Url 2</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control" name="photourl2"
+									ng-model="photourl2" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Tag 1</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control" name="tagname1"
+									ng-model="tagname1" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Tag 2</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control" name="tagname2"
+									ng-model="tagname2" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div style="padding-left: 200px">
+								<input type="submit" value="Submit" class="btn btn-primary" />
+							</div>
+						</div>
+					</form>
+				</td>
+				<!-- <td style="width: 45%; padding-left: 40px; vertical-align: top">
+					<table class="table">
+						<tr>
+							<th>Pet Id</th>
+							<th>Pet Name</th>
+							<th>Category</th>
+							<th>Status</th>
+						</tr>
+						<tr ng-repeat="pet in pets">
+							<td><a href="#/pet/{{pet.id}}">{{pet.id}}</a></td>
+							<td>{{pet.name}}</td>
+							<td>{{pet.category.name}}</td>
+							<td>{{pet.status}}</td>
+						</tr>
+					</table>
+				</td> -->
+				<td/>
+			</tr>
+		</table>
+	</div>
+</div>

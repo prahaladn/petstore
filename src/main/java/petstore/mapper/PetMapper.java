@@ -2,6 +2,7 @@ package petstore.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.stereotype.Component;
 
@@ -14,13 +15,16 @@ import petstore.dto.TagDto;
 
 @Component
 public class PetMapper {
+	private final AtomicInteger petCounter = new AtomicInteger();
+	private final AtomicInteger categoryCounter = new AtomicInteger();
+	private final AtomicInteger tagCounter = new AtomicInteger();
 	
 	public Pet mapToPet(PetDto petDto){
 		Pet pet = new Pet();
-		pet.setId(petDto.getId());
+		pet.setId(petCounter.incrementAndGet());
 		
 		Category category = new Category();
-		category.setId(petDto.getCategory().getId());
+		category.setId(categoryCounter.incrementAndGet());
 		category.setName(petDto.getCategory().getName());
 		pet.setCategory(category);
 		
@@ -31,7 +35,7 @@ public class PetMapper {
 		List<Tag> tags = new ArrayList<Tag>();
 		for(TagDto tagDto : petDto.getTags()){
 			Tag tag = new Tag();
-			tag.setId(tagDto.getId());
+			tag.setId(tagCounter.incrementAndGet());
 			tag.setName(tagDto.getName());
 			tags.add(tag);
 		}

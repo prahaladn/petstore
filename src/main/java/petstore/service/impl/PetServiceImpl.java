@@ -1,5 +1,8 @@
 package petstore.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,14 +10,14 @@ import petstore.domain.Pet;
 import petstore.dto.PetDto;
 import petstore.exception.PetNotFoundException;
 import petstore.mapper.PetMapper;
-import petstore.repository.IPetStoreRepository;
-import petstore.service.IPetStoreService;
+import petstore.repository.IPetRepository;
+import petstore.service.IPetService;
 
 @Service
-public class PetStoreServiceImpl implements IPetStoreService {
+public class PetServiceImpl implements IPetService {
 	
 	@Autowired
-	IPetStoreRepository petStoreRepository;
+	IPetRepository petRepository;
 	
 	@Autowired
 	PetMapper petMapper;
@@ -22,7 +25,7 @@ public class PetStoreServiceImpl implements IPetStoreService {
 
 	public PetDto create(PetDto petDto) {
 		Pet pet = petMapper.mapToPet(petDto);
-		pet = petStoreRepository.save(pet);
+		pet = petRepository.save(pet);
 		return petMapper.mapToPetDto(pet);
 	}
 
@@ -33,12 +36,21 @@ public class PetStoreServiceImpl implements IPetStoreService {
 
 	public PetDto delete(int id){
 		Pet pet = findPetById(id);
-		petStoreRepository.delete(pet);
+		petRepository.delete(pet);
 		return petMapper.mapToPetDto(pet);
 	}
 	
+	public List<PetDto> getAll(){
+		List<PetDto> petDtos = new ArrayList<PetDto>();
+		List<Pet> pets = petRepository.findAll();
+		for(Pet pet : pets){
+			petDtos.add(petMapper.mapToPetDto(pet));
+		}
+		return petDtos;
+	}
+	
 	private Pet findPetById(int id) {
-		Pet pet = petStoreRepository.findOne(id);
+		Pet pet = petRepository.findOne(id);
 		if(null != pet){
 			return pet;
 		}else{

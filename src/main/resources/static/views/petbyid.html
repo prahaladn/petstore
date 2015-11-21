@@ -1,0 +1,54 @@
+<div style="padding: 0px 0px 0px 30px">
+	<div class="page-header" style="margin: 0">
+		<h2>
+			<!-- Heading goes here -->
+			Find a Pet
+		</h2>
+	</div>
+	
+	<div style="padding-bottom: 50px">
+	<div style="margin-top: 20px" class="alert alert-info" role="alert">{{message}}</div>
+		<table style="width: 100%">
+			<tr>
+				<td style="width: 45%; vertical-align: top">
+					<div style="padding-bottom: 20px">
+						<h3>Search by Pet Id</h3>
+					</div>
+					<form class="form-horizontal" role="form"
+						ng-submit="findAPet()">
+						<div class="form-group">
+							<label class="col-md-4 control-label">Pet Id</label>
+							<div class="col-md-5">
+								<input type="text" class="form-control" name="id"
+									ng-model="id" required />
+							</div>
+							<div>
+								<input type="submit" value="Search" class="btn btn-primary" />
+							</div>
+						</div>
+					</form>
+				</td>
+				</tr>
+				<tr height="40px"/>
+				<tr style="margin-top: 100px;">
+				<td style="width: 45%; padding-left: 40px; vertical-align: top">
+					<table class="table">
+						<tr>
+							<th>Pet Id</th>
+							<th>Pet Name</th>
+							<th>Category</th>
+							<th>Status</th>
+						</tr>
+						<tr>
+							<td><a href="#/pet/{{pet.id}}">{{pet.id}}</a></td>
+							<td>{{pet.name}}</td>
+							<td>{{pet.category.name}}</td>
+							<td>{{pet.status}}</td>
+						</tr>
+					</table>
+				</td>
+				<td/>
+			</tr>
+		</table>
+	</div>
+</div>
